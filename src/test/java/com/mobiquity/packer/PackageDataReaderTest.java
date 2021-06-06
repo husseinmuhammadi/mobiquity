@@ -47,7 +47,7 @@ class PackageDataReaderTest extends KnapsackTestBase {
                 Assertions.assertNotNull(in);
                 packageDataReader.readAll(in);
                 Mockito.verify(packageDeserializer, Mockito.times(4))
-                        .match(Mockito.any());
+                        .update(Mockito.any(), Mockito.any());
             }
         });
     }

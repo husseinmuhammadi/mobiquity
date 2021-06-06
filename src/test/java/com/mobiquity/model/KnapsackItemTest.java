@@ -12,7 +12,7 @@ class KnapsackItemTest {
      * Testing knapsack builder to create an instance
      */
     @Test
-    void givenBuilderPattern_whenCreateNewInstance_thenPropertiesShouldSetCorrect() {
+    void givenBuilderPattern_whenCreateNewInstance_thenPropertiesShouldSetCorrect() throws APIException {
         KnapsackItem item = KnapsackItem.builder()
                 .index(1).weight(40).cost(10).build();
         assertEquals(item.getIndex(), 1);

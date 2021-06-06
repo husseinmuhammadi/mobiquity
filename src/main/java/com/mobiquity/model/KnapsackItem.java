@@ -2,6 +2,7 @@ package com.mobiquity.model;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.mobiquity.exception.APIException;
 
 public class KnapsackItem {
     private final int index; // optional
@@ -60,15 +61,21 @@ public class KnapsackItem {
             return this;
         }
 
-        public KnapsackItem build() {
+        public KnapsackItem build() throws APIException {
             KnapsackItem item = new KnapsackItem(this);
             validate(item);
             return item;
         }
 
-        private void validate(KnapsackItem item) {
+        private void validate(KnapsackItem item) throws APIException {
             if (item.getIndex() < 0)
-                throw new RuntimeException("Index could not be negative!");
+                throw new APIException("Index could not be negative!");
+
+            if (item.getCost() < 0)
+                throw new APIException("Cost could not be negative!");
+
+            if (item.getCost() > 100)
+                throw new APIException("Cost could not be more than 100!");
         }
     }
 }

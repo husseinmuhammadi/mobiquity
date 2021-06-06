@@ -10,6 +10,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class KnapsackTest {
 
+    private static KnapsackItem create(Integer index) {
+        try {
+            return KnapsackItem.builder().index(index).build();
+        } catch (APIException e) {
+        }
+        return null;
+    }
+
     @Test
     void givenBuilderPattern_whenCreateNewInstance_thenPropertiesShouldCorrect() {
         Knapsack knapsack = Knapsack.builder()
@@ -47,7 +55,7 @@ class KnapsackTest {
         Assertions.assertThrows(APIException.class, () -> {
             Knapsack knapsack = Knapsack.builder().limit(40)
                     .items(IntStream.range(1, 20).boxed()
-                            .map(index -> KnapsackItem.builder().index(index).build())
+                            .map(KnapsackTest::create)
                             .toArray(KnapsackItem[]::new)
                     ).build();
         });

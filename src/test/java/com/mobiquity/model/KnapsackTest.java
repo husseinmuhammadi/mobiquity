@@ -19,7 +19,7 @@ class KnapsackTest {
     }
 
     @Test
-    void givenBuilderPattern_whenCreateNewInstance_thenPropertiesShouldCorrect() {
+    void givenBuilderPattern_whenCreateNewInstance_thenPropertiesShouldCorrect() throws APIException {
         Knapsack knapsack = Knapsack.builder()
                 .limit(40).build();
         assertEquals(knapsack.getLimit(), 40);

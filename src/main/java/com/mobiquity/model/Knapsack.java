@@ -2,6 +2,7 @@ package com.mobiquity.model;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.mobiquity.exception.APIException;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -56,8 +57,21 @@ public class Knapsack {
             return this;
         }
 
-        public Knapsack build() {
-            return new Knapsack(this);
+        public Knapsack build() throws APIException {
+            Knapsack knapsack = new Knapsack(this);
+            validate(knapsack);
+            return knapsack;
+        }
+
+        private void validate(Knapsack knapsack) throws APIException {
+            if (knapsack.getLimit() < 0)
+                throw new APIException("Limit could not be negative!");
+
+            if (knapsack.getLimit() > 100)
+                throw new APIException("Limit could not be greater than 100!");
+
+            if (knapsack.getItems().size() > 15)
+                throw new APIException("Items count could not be greater than 15!");
         }
     }
 }

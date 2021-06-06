@@ -12,3 +12,15 @@ A simple solution is to consider all subsets of items and calculate the total we
 
 ## Test Driven Development
 
+### Create data models and APIs
+As we are supposed to put the items in the package with the max value, we create some data models regarding to this challenge
+Two data model were created: Knapsnak and KnapsnakItem with some considertation 
+
+### User stoires:
+- Knapsnak can not carry more than 100
+- The number of items in each problem can not be more than 15 
+- Maximum weight of each item can not be more than 100
+- Maximum cost of each item can not be more than 100 
+
+
+

@@ -16,9 +16,22 @@ A simple solution is to consider all subsets of items and calculate the total we
 As we are supposed to put the items in the package with the max value, we create some data models regarding to this challenge
 Two data model were created: Knapsnak and KnapsnakItem with some considertation 
 
-### User stoires:
+### User stories:
+As I am going to write my code based on TDD approach, first I write user stories 
+as much as possible and after that I will write my code in order to all my test cases 
+satisfied, hence below would be some user stories:
+
+I create data model using _**builder design pattern**_ and I prefer to keep my data models
+_**immutable**_ type. If we need to share state between different threads, we can create
+_thread-safe_ classes by making them immutable.
+
+
+
+#### Knapsack Data Model
 - Knapsnak can not carry more than 100
 - The number of items in each problem can not be more than 15 
+
+#### Knapsack Item Data Model
 - Maximum weight of each item can not be more than 100
 - Maximum cost of each item can not be more than 100 
 

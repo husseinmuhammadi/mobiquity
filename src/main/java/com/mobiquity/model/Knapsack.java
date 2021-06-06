@@ -50,7 +50,7 @@ public class Knapsack {
             return this;
         }
 
-        public Builder owners(KnapsackItem... items) {
+        public Builder items(KnapsackItem... items) {
             for (KnapsackItem item : items)
                 this.items.add(item);
             return this;

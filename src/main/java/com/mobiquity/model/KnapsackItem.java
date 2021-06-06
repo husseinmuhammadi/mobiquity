@@ -71,6 +71,15 @@ public class KnapsackItem {
             if (item.getIndex() < 0)
                 throw new APIException("Index could not be negative!");
 
+            if (item.getIndex() > 15)
+                throw new APIException("Index could not be greater than 15!");
+
+            if (item.getWeight() < 0)
+                throw new APIException("Weight could not be negative!");
+
+            if (item.getWeight() > 100)
+                throw new APIException("Weight could not be more than 100!");
+
             if (item.getCost() < 0)
                 throw new APIException("Cost could not be negative!");
 

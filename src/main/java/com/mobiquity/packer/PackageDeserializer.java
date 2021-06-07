@@ -42,7 +42,7 @@ public class PackageDeserializer extends Observable implements Observer {
             KnapsackItem knapsackItem = KnapsackItem.builder()
                     .index(Integer.parseInt(matcher.group(1)))
                     .weight(Double.parseDouble(matcher.group(2)))
-                    .cost(Double.parseDouble(matcher.group(1)))
+                    .cost(Double.parseDouble(matcher.group(3)))
                     .build();
             knapsackItems.add(knapsackItem);
         }

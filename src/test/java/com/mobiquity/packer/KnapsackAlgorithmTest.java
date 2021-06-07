@@ -29,7 +29,7 @@ class KnapsackAlgorithmTest {
 
         PackageDeserializer packageDeserializer = new PackageDeserializer(errorParsing);
         List<KnapsackItem> knapsackItems = packageDeserializer.items(KNAPSACK_ITEMS);
-        knapsackAlgorithm = new KnapsackAlgorithm(packageDeserializer.limit(KNAPSACK_ITEMS), knapsackItems.toArray(KnapsackItem[]::new));
+        knapsackAlgorithm = new KnapsackAlgorithm(81, knapsackItems.toArray(KnapsackItem[]::new));
     }
 
     @Test

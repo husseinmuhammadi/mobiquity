@@ -24,7 +24,7 @@ public class PackageDeserializer extends Observable implements Observer {
         this.parseException = parseException;
     }
 
-    private int limit(String data) throws ParseException {
+    public int limit(String data) throws ParseException {
         Pattern pattern = Pattern.compile("^(\\p{Digit}+)\\p{Space}*:");
         Matcher matcher = pattern.matcher(data);
         if (matcher.find())
@@ -32,7 +32,7 @@ public class PackageDeserializer extends Observable implements Observer {
         throw new ParseException("Could not parse " + data, 0);
     }
 
-    private List<KnapsackItem> items(String data) throws ParseException, APIException {
+    public List<KnapsackItem> items(String data) throws ParseException, APIException {
         List<KnapsackItem> knapsackItems = new LinkedList<>();
         Pattern pattern = Pattern.compile("[(]([0-9]*),([0-9]*\\.?[0-9]*),\\p{Sc}([0-9]*)[)]");
         Matcher matcher = pattern.matcher(data);

@@ -21,13 +21,13 @@ class KnapsackAlgorithmTest {
     public static final String KNAPSACK_ITEMS = "(1,53.38,€45) (2,88.62,€98) (3,78.48,€3) (4,72.30,€76) (5,30.18,€9) (6,46.34,€48)";
 
     @Mock
-    private Consumer<Boolean> errorParsing;
+    private Consumer<Exception> onError;
 
     @BeforeEach
     void setUp() throws APIException, ParseException {
         MockitoAnnotations.initMocks(this);
 
-        PackageDeserializer packageDeserializer = new PackageDeserializer(errorParsing);
+        PackageDeserializer packageDeserializer = new PackageDeserializer(onError);
         List<KnapsackItem> knapsackItems = packageDeserializer.items(KNAPSACK_ITEMS);
         knapsackAlgorithm = new KnapsackAlgorithm(81, knapsackItems.toArray(KnapsackItem[]::new));
     }

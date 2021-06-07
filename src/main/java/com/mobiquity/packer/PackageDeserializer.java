@@ -18,10 +18,10 @@ import java.util.regex.Pattern;
 public class PackageDeserializer extends Observable implements Observer {
 
     private Logger logger = LoggerFactory.getLogger(PackageDeserializer.class);
-    private final Consumer<Boolean> parseException;
+    private final Consumer<Exception> onError;
 
-    public PackageDeserializer(Consumer<Boolean> parseException) {
-        this.parseException = parseException;
+    public PackageDeserializer(Consumer<Exception> onError) {
+        this.onError = onError;
     }
 
     public int limit(String data) throws ParseException {
@@ -59,7 +59,7 @@ public class PackageDeserializer extends Observable implements Observer {
             setChanged();
             notifyObservers(knapsack);
         } catch (APIException | ParseException e) {
-            parseException.accept(true);
+            onError.accept(e);
         }
     }
 }
